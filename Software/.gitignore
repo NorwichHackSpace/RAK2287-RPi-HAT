@@ -1,1 +1,9 @@
 /build/
+
+*.a
+obj/*.o
+
+test_loragw_*
+inc/config.h
+
+lora_pkt_fwd
