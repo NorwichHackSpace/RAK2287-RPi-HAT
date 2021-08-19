@@ -1,0 +1,11 @@
+[Unit]
+Description=AutoSSH tunnel service
+Requires=sshd.service
+After=network.target sshd.service
+
+[Service]
+Environment="AUTOSSH_GATETIME=0"
+ExecStart=/usr/bin/autossh -M 0 -o "ServerAliveInterval 120" -o "ServerAliveCountMax 6" -NR 22001:localhost:22 rssh@home.megazirt.co.uk -i /home/pi/.ssh/experimental-lora
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=The Things Network Gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/opt/ttn-gateway/bin/
+ExecStart=/opt/ttn-gateway/bin/start.sh
+SyslogIdentifier=ttn-gateway
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

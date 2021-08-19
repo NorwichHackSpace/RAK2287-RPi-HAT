@@ -1,0 +1,12 @@
+[Unit]
+Description=ChirpStack Packet Multiplexer
+Documentation=https://www.chirpstack.io/
+Wants=network-online.target lora_pkt_fwd.service
+After=network-online.target lora_pkt_fwd.service
+
+[Service]
+ExecStart=/opt/ttn-gateway/bin/chirpstack-packet-multiplexer -c chirpstack-packet-multiplexer.conf
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
